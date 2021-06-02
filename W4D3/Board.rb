@@ -1,15 +1,19 @@
-require_relative "PieceClass"
+require "./Pieces/PieceClass.rb"
+require "./Pieces/NullPiece.rb"
 
 class Board
 
   def initialize
     @rows = Array.new(8) {Array.new(8)}
-    @null_piece = NullPiece.new
+    # @null_piece = NullPiece.new
     
+    (3..6).each do |i|
+      (0..7).each do |j|
+        @rows[i][j] = " "
+      end
+    end
 
 
-
-    
   end
 
   def [](pos)
@@ -31,7 +35,7 @@ class Board
   end
 
   def valid_pos?(pos)
-    if self[pos] == null_piece && 
+    # if self[pos] == null_piece  
   end
 
   def add_piece(piece, pos)
@@ -55,7 +59,5 @@ class Board
 
   def move_piece!(color, start_pos, end_pos)
   end
-
- 
 
 end
