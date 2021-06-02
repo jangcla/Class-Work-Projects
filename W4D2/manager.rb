@@ -11,6 +11,10 @@ class Manager < Employee
         self.total_salary * multiplier
     end
 
+    def employees
+      @employees
+    end
+
     def total_salary
         sum = 0
         @employees.each do |employee|
@@ -23,6 +27,5 @@ class Manager < Employee
       @employees << worker
     end
 
-    private
-    attr_reader :salary, :employees
+    attr_reader :salary
 end
