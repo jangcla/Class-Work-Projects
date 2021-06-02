@@ -5,7 +5,6 @@ class Board
 
   def initialize
     @rows = Array.new(8) {Array.new(8)}
-    # @null_piece = NullPiece.new
     
     (2..5).each do |i|
       (0..7).each do |j|
@@ -17,6 +16,32 @@ class Board
         @rows[1][i] = Pawn.new(:white, @rows, [1, i]).symbol
         @rows[6][i] = Pawn.new(:black, @rows, [6, i]).symbol
     end
+
+    [0, 7].each do |i|
+      @rows[0][i] = Rook.new(:white, @rows, [0, i]).symbol
+      @rows[7][i] = Rook.new(:black, @rows, [7, i]).symbol    
+    end
+
+    [1, 6].each do |i|
+      @rows[0][i] = Knight.new(:white, @rows, [0, i]).symbol
+      @rows[7][i] = Knight.new(:black, @rows, [7, i]).symbol
+    end
+
+    [2, 5].each do |i|
+      @rows[0][i] = Bishop.new(:white, @rows, [0, i]).symbol
+      @rows[7][i] = Bishop.new(:black, @rows, [7, i]).symbol
+    end
+
+    [3, 4].each do |i|
+      if i == 3
+        @rows[0][i] = King.new(:white, @rows, [0, i]).symbol
+        @rows[7][i] = King.new(:black, @rows, [7, i]).symbol
+      else
+        @rows[0][i] = Queen.new(:white, @rows, [0, i]).symbol
+        @rows[7][i] = Queen.new(:black, @rows, [7, i]).symbol
+      end
+    end
+    
   end
 
   def [](pos)
