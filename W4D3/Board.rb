@@ -1,18 +1,27 @@
+require_relative "PieceClass"
+
 class Board
+
   def initialize
-    @board = Array.new(8) {Array.new(8)}
+    @rows = Array.new(8) {Array.new(8)}
+    @null_piece = NullPiece.new
+    
+
+
+
+    
   end
 
   def [](pos)
     row = pos[0]
     col = pos[1]
-    @board[row][col]
+    @rows[row][col]
   end
 
   def []=(pos, piece)
     row = pos[0]
     col = pos[1]
-    @board[row][col] = piece
+    @rows[row][col] = piece
   end
 
   def move_piece(color, start_pos, end_pos)
@@ -26,6 +35,7 @@ class Board
   end
 
   def add_piece(piece, pos)
+    self[pos] = piece
   end
 
   def checkmate?(color)
@@ -45,5 +55,7 @@ class Board
 
   def move_piece!(color, start_pos, end_pos)
   end
+
+ 
 
 end

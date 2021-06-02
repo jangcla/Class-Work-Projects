@@ -1,8 +1,12 @@
 class Piece
+
   def initialize(color, board, pos)
-    @color = :color
-    @board = Board.new
-    @pos = []
+  
+    @color = color
+    @board = board
+    @pos = pos
+ 
+    #add piece to a part of the board
   end
 
   def to_s
@@ -18,9 +22,10 @@ class Piece
   end
 
   def Symbol
+    raise NotImplementedError
   end
   
-  private
+  # private
   def move_into_check?(end_pos)
   end
 end

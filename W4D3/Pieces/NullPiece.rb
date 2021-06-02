@@ -1,5 +1,20 @@
 require 'singleton'
+require_relative "PieceClass"
 
-class NullPiece
+class NullPiece < Piece
   include Singleton
+
+  def initialize
+    @color = :none
+    @symbol = ' '
+     
+  end
+
+  # def moves  
+    
+  # end
+
+  # def Symbol
+    
+  # end
 end
