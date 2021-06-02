@@ -1,5 +1,5 @@
-require "./Pieces/PieceClass.rb"
-require "./Pieces/NullPiece.rb"
+require "require_all"
+require_all "pieces"
 
 class Board
 
@@ -7,13 +7,16 @@ class Board
     @rows = Array.new(8) {Array.new(8)}
     # @null_piece = NullPiece.new
     
-    (3..6).each do |i|
+    (2..5).each do |i|
       (0..7).each do |j|
-        @rows[i][j] = " "
+        @rows[i][j] = NullPiece.instance.symbol
       end
     end
 
-
+    (0..7).each do |i|
+        @rows[1][i] = Pawn.new(:white, @rows, [1, i]).symbol
+        @rows[6][i] = Pawn.new(:black, @rows, [6, i]).symbol
+    end
   end
 
   def [](pos)

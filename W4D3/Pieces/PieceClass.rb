@@ -1,3 +1,4 @@
+
 class Piece
 
   def initialize(color, board, pos)
@@ -10,6 +11,7 @@ class Piece
   end
 
   def to_s
+    
   end
 
   def empty?
@@ -21,7 +23,7 @@ class Piece
   def pos=(val)
   end
 
-  def Symbol
+  def symbol
     raise NotImplementedError
   end
   
