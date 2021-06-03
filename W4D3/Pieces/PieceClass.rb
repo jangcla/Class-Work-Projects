@@ -1,6 +1,8 @@
 
 class Piece
 
+  attr_reader :color
+
   def initialize(color, board, pos)
   
     @color = color
@@ -11,7 +13,7 @@ class Piece
   end
 
   def to_s
-    
+
   end
 
   def empty?
