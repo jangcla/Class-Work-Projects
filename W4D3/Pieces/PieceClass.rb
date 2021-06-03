@@ -12,6 +12,11 @@ class Piece
     #add piece to a part of the board
   end
 
+  def moves 
+    #should return array of valid moves
+
+  end
+
   def to_s
 
   end
@@ -20,6 +25,8 @@ class Piece
   end
 
   def valid_moves
+    #should check if move is valid?
+    
   end
 
   def pos=(val)
