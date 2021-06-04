@@ -1,24 +1,24 @@
 require "byebug"
-#Phase 1
+Phase 1
 
-# def first_anagram(word1, word2)
-#     arr = word1.split("").permutation.to_a
-#     p arr.length
-#     arr.each do |sub_arr|
-#         return true if word2 == sub_arr.join
-#     end
+def first_anagram(word1, word2)
+    arr = word1.split("").permutation.to_a
+    p arr.length
+    arr.each do |sub_arr|
+        return true if word2 == sub_arr.join
+    end
 
-#     false
-
-
-# end
-
-# p  first_anagram("craps", "car")
-
-#This is O(n!)
+    false
 
 
-#Phase 2
+end
+
+p  first_anagram("craps", "car")
+
+# Time complexity = O(n!)
+
+
+Phase 2
 
 def second_anagram?(word1, word2)
   return true if (word1.empty?) && (word2.empty?)
@@ -35,7 +35,12 @@ end
 
 p  second_anagram?("tarc", "cart")
 
-# This should be O(n log n)
+# Time complexity =  O(n log n)
+
+
+Phase 3
+
+  
 
 
 
