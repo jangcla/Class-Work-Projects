@@ -53,6 +53,7 @@ end
 def sub_sum(arr)
     max = arr[0]
     current = arr[0]
+
     (1...arr.length).each do |i|
         if current < 0
             current = 0 
@@ -62,6 +63,7 @@ def sub_sum(arr)
             max = current
         end
     end
+    
     max
 end
 
