@@ -33,18 +33,52 @@ INSERT INTO
     questions(title, body, author_id)
 VALUES
     ('Birthplace', 'Where were you born?', (SELECT id FROM users WHERE fname = 'Sam')),
-    ('Age', 'How old are you', (SELECT id FROM users WHERE fname = 'John'))
+    ('Age', 'How old are you', (SELECT id FROM users WHERE fname = 'John'));
 
 -------------------------------------------------------------------------------------------
 
 CREATE TABLE replies (
     id INTEGER PRIMARY KEY,
-
     reply VARCHAR(230) NOT NULL,
-    question_id
+    users_id INTEGER NOT NULL,
+    question_id INTEGER NOT NULL,
+    reply_id INTEGER, 
+
+
+    FOREIGN KEY (users_id) REFERENCES users(id),
+    FOREIGN KEY (question_id) REFERENCES questions(id),
+    FOREIGN KEY (reply_id) REFERENCES replies(id)
+);
+
+CREATE TABLE question_likes (
+    id INTEGER PRIMARY KEY,
+    likes TEXT NOT NULL,
+    users_id INTEGER NOT NULL,
+    question_id INTEGER NOT NULL,
+
+
+    FOREIGN KEY (users_id) REFERENCES users(id),
+    FOREIGN KEY (question_id) REFERENCES questions(id)
 );
 
 INSERT INTO
-    replies(parent_question, reply, reply_id)
+    replies(reply, users_id, question_id, reply_id)
 VALUES
-    (1, "asdfjkldaf", 123)
+    ('I was born in PA.', 1, 1, null);
+
+
+
+INSERT INTO
+    question_likes(likes, users_id, question_id)
+VALUES
+    ('Age', 1, 2);
+    
+
+
+
+
+
+
+
+
+
