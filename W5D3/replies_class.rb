@@ -1,5 +1,7 @@
 require 'sqlite3'
 require 'singleton'
+require 'questions_class'
+require 'users_class'
 
 class RepliesDBConnection < SQLite3::Database
   include Singleton
@@ -36,6 +38,15 @@ class Replies
   def self.find_by_question_id(question_id)
     data = RepliesDBConnection.instance.execute("SELECT * FROM replies WHERE question_id = #{question_id}")
     data.map { |datum| Replies.new(datum) }
+  end
+
+  def author
+    Users.find_by_id(self.user_id)
+  end
+
+  def question
+    data = QuestionsDBConnection.instance.execute("SELECT * FROM questions WHERE id = #{self.question_id}")
+    data.map { |datum| Questions.new(datum) }
   end
 
 end

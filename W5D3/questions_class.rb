@@ -1,5 +1,6 @@
 require 'sqlite3'
 require 'singleton'
+require 'users_class'
 
 class QuestionsDBConnection < SQLite3::Database
   include Singleton
@@ -32,5 +33,13 @@ class Questions
     data.map { |datum| Questions.new(datum) }
   end
 
+  def author
+    author = Users.find_by_id(self.author_id)
+    "#{author.fname} #{author.lname}"
+  end
+
+  def replies
+    Replies.find_by_question_id(self.id)
+  end
 
 end
