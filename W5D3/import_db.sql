@@ -25,6 +25,13 @@ CREATE TABLE question_follows (
     FOREIGN KEY (questions_id) REFERENCES questions(id)
 );
 
+
+-- id          follower_id             questions_id
+-- 1               1(Sam)                 2(Age)
+-- 2               2(John)                1(Birthplace)
+-- 3               3(Kathy)               2(Age)
+
+
 CREATE TABLE replies (
     id INTEGER PRIMARY KEY,
     reply VARCHAR(230) NOT NULL,
@@ -70,11 +77,13 @@ VALUES
 INSERT INTO
     replies(reply, users_id, question_id, reply_id)
 VALUES
-    ('I was born in PA.', 1, 1, null);
+    ('I was born in PA.', 1, 1, null)
+    ('I was born in CA.', 2, 1, null);
 
 
 
 INSERT INTO
     question_likes(likes, users_id, question_id)
 VALUES
-    ('Age', 1, 2);
+    ('Age', 1, 2)
+    ('Age', 2, 2);

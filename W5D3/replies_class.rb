@@ -49,4 +49,14 @@ class Replies
     data.map { |datum| Questions.new(datum) }
   end
 
+  def parent_reply
+    data = RepliesDBConnection.instance.execute("SELECT * FROM replies WHERE reply_id = #{self.id}")
+    data.map { |datum| Replies.new(datum) }
+  end
+
+  def child_replies
+    data = RepliesDBConnection.instance.execute("SELECT * FROM replies WHERE id = #{self.reply_id}")
+    data.map { |datum| Replies.new(datum) }
+  end
+
 end
