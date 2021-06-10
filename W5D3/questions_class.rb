@@ -1,6 +1,8 @@
 require 'sqlite3'
 require 'singleton'
+require 'questions_class'
 require 'users_class'
+require 'replies'
 
 class QuestionsDBConnection < SQLite3::Database
   include Singleton
@@ -45,6 +47,6 @@ class Questions
   def followers
     QuestionFollows.followers_for_question_id(self.id)
   end
-  
+
 
 end

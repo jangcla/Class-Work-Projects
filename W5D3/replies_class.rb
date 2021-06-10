@@ -2,6 +2,7 @@ require 'sqlite3'
 require 'singleton'
 require 'questions_class'
 require 'users_class'
+require 'question_follows_class.rb'
 
 class RepliesDBConnection < SQLite3::Database
   include Singleton
