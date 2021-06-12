@@ -119,6 +119,8 @@ def casablanca_cast
   actors
   JOIN
   castings ON castings.movie_id = casablanca_id
+  WHERE
+  
 
 
   SQL
