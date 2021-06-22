@@ -23,19 +23,20 @@ class User < ApplicationRecord
         self.password_digest = BCrypt::Password.create(password)
     end
 
-    # def check_password?(password)
-    #     password_object = BCrypt::Password.new(self.password_digest)
-    #     password_object.is_password?(password)
-    # end
+    def check_password?(password)
+        password_object = BCrypt::Password.new(self.password_digest)
+        # instance of logging in/ comparing the encrypted password to the actual password 
+        password_object.is_password?(password)
+    end
 
     def self.find_by_credentials(user_name, password)
-        # user = User.find_by(user_name: user_name)
+        user = User.find_by(user_name: user_name)
 
-        # if user && user.is_password?(password)
-        #     user
-        # else
-        #     nil
-        # end
+        if user && user.is_password?(password)
+            user
+        else
+            nil
+        end
     end
 
 end
