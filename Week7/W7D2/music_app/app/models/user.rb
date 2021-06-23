@@ -2,7 +2,7 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :session_token, presence: true, unique: true
     validates :password_digest, presence: true
-    validates :password, length: {minimum: 8, allow_nil: true}
+    validates :password, length: {minimum: 8}, allow_nil: true
     after_initialize :ensure_session_token
 
     def reset_session_token!
