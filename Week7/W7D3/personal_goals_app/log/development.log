@@ -327,3 +327,257 @@ Migrating to CreateUsers (20210623211254)
   ↳ db/seeds.rb:12
   [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
   ↳ db/seeds.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "personal_goals_app_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "personal_goals_app_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (332.7ms)[0m  [1m[35mCREATE DATABASE "personal_goals_app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (117.3ms)[0m  [1m[35mCREATE DATABASE "personal_goals_app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (10.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (56.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210623211254)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (2.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (2.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-23 22:24:03.649016"], ["updated_at", "2021-06-23 22:24:03.649016"]]
+  ↳ db/schema.rb:13
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (36.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (10.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210623211254)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-23 22:24:03.825259"], ["updated_at", "2021-06-23 22:24:03.825259"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.8ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-06-23 22:24:03.829065"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "any"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iwTxPw69NXz-VIu8Wa5MKw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "any"], ["password_digest", "$2a$12$6sRdPm9UuRaNiY86ZOeZnuXjVRqnJM8QNOCmcyezEQYS9S07vTWwu"], ["session_token", "iwTxPw69NXz-VIu8Wa5MKw"], ["created_at", "2021-06-23 22:24:04.139622"], ["updated_at", "2021-06-23 22:24:04.139622"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anys"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TAgamIEiNUqhu1yGdj2F5A"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "anys"], ["password_digest", "$2a$12$CW2IIt3VbdiBGR0s5jcnKOUv0tAlcs5cwJ.M86iWzV0JmYyUksEee"], ["session_token", "TAgamIEiNUqhu1yGdj2F5A"], ["created_at", "2021-06-23 22:24:04.457005"], ["updated_at", "2021-06-23 22:24:04.457005"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anyss"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Ui9GIsRgTRRdH6nFfUjrOA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "anyss"], ["password_digest", "$2a$12$XZ.a/tlS.3iJtqEtgmlDOuhNr05RdQkDQ2CpRCHFA0VYqf0y9dgY6"], ["session_token", "Ui9GIsRgTRRdH6nFfUjrOA"], ["created_at", "2021-06-23 22:24:04.734814"], ["updated_at", "2021-06-23 22:24:04.734814"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (10.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anysss"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Xk_jBUJpjDOHCjJpUt4s4Q"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "anysss"], ["password_digest", "$2a$12$w6Dvj0PEkJPPdxc2fRw0cOLU7f3xgJoOfPTALguU2fjMaY6hfGBx."], ["session_token", "Xk_jBUJpjDOHCjJpUt4s4Q"], ["created_at", "2021-06-23 22:24:05.002943"], ["updated_at", "2021-06-23 22:24:05.002943"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "any"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_fcaJxgX6hEaIH9v-n63Bg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anys"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sQ6_2tMS0Wz0PWUWfvL37g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anyss"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "AAsJZT-xAN44VXKtrPqcgw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "anysss"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "WXEqDhQmEsoJ536PYq1HCw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:12
+Started GET "/" for ::1 at 2021-06-23 17:06:05 -0700
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (9.7ms)
+Completed 200 OK in 142ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2021-06-23 17:06:09 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (26.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (121.1ms)
+Completed 200 OK in 930ms (Views: 820.6ms | ActiveRecord: 103.9ms)
+
+
+Started GET "/users/1" for ::1 at 2021-06-23 17:06:17 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (35.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 127ms (Views: 53.3ms | ActiveRecord: 54.8ms)
+
+
+Started GET "/users/1" for ::1 at 2021-06-23 17:08:45 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 81ms (Views: 74.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users" for ::1 at 2021-06-23 17:08:46 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 47ms (Views: 39.0ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/users/2" for ::1 at 2021-06-23 17:08:48 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (29.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 96ms (Views: 64.5ms | ActiveRecord: 29.5ms)
+
+
+Started GET "/users" for ::1 at 2021-06-23 17:08:50 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (42.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 91ms (Views: 43.7ms | ActiveRecord: 42.5ms)
+
+
+Started GET "/users/3" for ::1 at 2021-06-23 17:09:00 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (31.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 68ms (Views: 34.0ms | ActiveRecord: 31.6ms)
+
+
+Started GET "/users" for ::1 at 2021-06-23 17:09:02 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (48.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (51.1ms)
+Completed 200 OK in 103ms (Views: 53.7ms | ActiveRecord: 48.6ms)
+
+
+Started GET "/users/4" for ::1 at 2021-06-23 17:09:03 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 40ms (Views: 30.9ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users" for ::1 at 2021-06-23 17:09:03 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (47.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (52.6ms)
+Completed 200 OK in 109ms (Views: 61.1ms | ActiveRecord: 47.8ms)
+
+
