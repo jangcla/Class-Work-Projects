@@ -22,3 +22,4 @@ Rack::Server.start(
   Port: 3000
 )
 
+# yay
