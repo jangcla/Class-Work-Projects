@@ -31,7 +31,7 @@ body {
 }
 
 .header-logo:hover {
-  background: #000;
+  background: goldenrod;
 }
 
 .header-list {
@@ -43,5 +43,5 @@ body {
 }
 
 .header-list > li:hover {
-  background: #000;
+  background: goldenrod;
 }

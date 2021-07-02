@@ -25,7 +25,7 @@ the top and bottom, you'll want to use a pseudo selector like :first-child,
 .profile-picture {
   display: block;
   margin-top: -120px;
-  border: 1px solid black;
+  border: 1px solid white;
   background: url("../images/kitty_mike.png");
   border-radius: 5px;
   position: relative;
@@ -38,6 +38,11 @@ the top and bottom, you'll want to use a pseudo selector like :first-child,
     font-size: 20px;
 }
 
+.profile-info h1 {
+    color: rgb(133, 23, 184);
+    font-size: 25px;
+}
+
 .profile-info {
     padding-top: 10px;
 }
@@ -45,8 +50,10 @@ the top and bottom, you'll want to use a pseudo selector like :first-child,
 .profile-info > p {
     padding-top: 5px;
     font-size: 15px;
+    border
 }
 
 .profile-info > h3{
-    color: purple;
+    color: rgb(133, 23, 184);
+    font-style: italic;
 }

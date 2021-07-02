@@ -22,11 +22,11 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  color: #000;
+  color: white;
   background: rgb(247, 214, 219);
   font-weight: bold;
   padding: 10px 20px;
-  border: 1px solid #000;
+  border: 1px solid ;
   border-radius: 5px;
 }
 
