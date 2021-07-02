@@ -56,28 +56,74 @@ class Dog {
 const markov = new Cat("Markov");
 const pavlov = new Dog("Pavlov");
 
-markov.says("meow", "Ned");
-// Markov says meow to Ned!
-// true
+// markov.says("meow", "Ned");
+// // Markov says meow to Ned!
+// // true
 
-// bind time args are "meow" and "Kush", no call time args
-markov.says.myBind(pavlov, "meow", "Kush")();
-// Pavlov says meow to Kush!
-// true
+// // bind time args are "meow" and "Kush", no call time args
+// markov.says.myBind(pavlov, "meow", "Kush")();
+// // Pavlov says meow to Kush!
+// // true
 
-// no bind time args (other than context), call time args are "meow" and "a tree"
-markov.says.myBind(pavlov)("meow", "a tree");
-// Pavlov says meow to a tree!
-// true
+// // no bind time args (other than context), call time args are "meow" and "a tree"
+// markov.says.myBind(pavlov)("meow", "a tree");
+// // Pavlov says meow to a tree!
+// // true
 
-// bind time arg is "meow", call time arg is "Markov"
-markov.says.myBind(pavlov, "meow")("Markov");
-// Pavlov says meow to Markov!
-// true
+// // bind time arg is "meow", call time arg is "Markov"
+// markov.says.myBind(pavlov, "meow")("Markov");
+// // Pavlov says meow to Markov!
+// // true
 
-// no bind time args (other than context), call time args are "meow" and "me"
-const notMarkovSays = markov.says.myBind(pavlov);
+// // no bind time args (other than context), call time args are "meow" and "me"
+// const notMarkovSays = markov.says.myBind(pavlov);
 
-notMarkovSays("meow", "me");
-// Pavlov says meow to me!
-// true
+// notMarkovSays("meow", "me");
+// // Pavlov says meow to me!
+// // true
+
+
+
+
+
+//curriedSum
+
+function curriedSum(numArgs) {
+    const numbers = [];
+
+    let sum = 0;
+    function _curriedSum(number) {
+        if (numArgs === numbers.length + 1) {
+            numbers.push(number);
+
+            sum = numbers.reduce((acc, el) => acc + el);
+            return sum;
+        }else {
+           numbers.push(number);
+           return _curriedSum; 
+        }
+    }
+    return _curriedSum;
+}
+
+
+const total = curriedSum(4);
+console.log(
+total(5)(30)(20)(1)
+);
+
+// function sumThree(num1, num2, num3) {
+//     return num1 + num2 + num3;
+// }
+
+// sumThree(4, 20, 6); // == 30
+
+// // you'll write `Function#curry`!
+// let f1 = sumThree.curry(3); // tells `f1` to wait until 3 arguments are given before running `sumThree`
+// f1 = f1(4); // [Function]
+// f1 = f1(20); // [Function]
+// f1 = f1(6); // = 30
+
+// // or more briefly:
+// sumThree.curry(3)(4)(20)(6); // == 30
+
