@@ -107,10 +107,10 @@ function curriedSum(numArgs) {
 }
 
 
-const total = curriedSum(4);
-console.log(
-total(5)(30)(20)(1)
-);
+// const total = curriedSum(4);
+// console.log(
+// total(5)(30)(20)(1)
+// );
 
 // function sumThree(num1, num2, num3) {
 //     return num1 + num2 + num3;
@@ -127,3 +127,32 @@ total(5)(30)(20)(1)
 // // or more briefly:
 // sumThree.curry(3)(4)(20)(6); // == 30
 
+
+Function.prototype.curry = function(numArgs) {
+    const args = [];
+    let that = this;
+    console.log(args);
+    function _helperMethod(arg) {
+        args.push(arg);
+        if (args.length < numArgs) {
+            return _helperMethod;
+        } else if (args.length === numArgs) {
+            return that(...args);
+        }
+        
+    }
+    return _helperMethod;
+}
+
+function fourAddition(a, b, c, d) {
+    let final = a + b + c + d;
+    return final;
+}
+
+let stuffs = fourAddition.curry(4)
+stuffs(2)
+stuffs(4)
+stuffs(6)
+console.log(stuffs(8))
+
+// fourAddition.curry
