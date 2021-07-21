@@ -1,0 +1,28 @@
+#clock {
+    border: solid white;
+    display: flex;
+    justify-content: center;
+    height: 320px;
+    width: 300px;
+    background-image: url(https://i2.wp.com/www.smileycat.com/wp-content/uploads/2016/05/banana-republic-clock.gif?fit=176%2C196&ssl=1);
+    background-size: cover;
+    border-radius: 10%;
+    color: white;
+}
+
+#time {
+    margin-right: 40px;
+}
+
+#clock p {
+    margin-top: 40px;
+}
+
+#inner-clock{
+    margin-top: 80px;
+    font-weight: bold;
+}
+
+body{
+    background: lightblue
+}
