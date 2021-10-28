@@ -19,6 +19,7 @@ const uncompress = (s) => {
 };
 
 
+
 // n = number of groups
 // m = max num found in any group
 // Time: O(n*m) as the potential is multiplied by the max amount
